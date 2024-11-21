@@ -1,0 +1,19 @@
+@host=http://localhost:3000
+
+
+POST {{host}}/register
+Content-Type: application/json
+
+{
+  "username": "MTorma",
+  "password": "password"
+}
+
+###
+Post {{host}}/login
+Content-Type: application/json
+
+{
+  "username": "MTorma",
+  "password": "password"
+}
