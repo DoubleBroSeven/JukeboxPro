@@ -34,6 +34,5 @@ model Playlist{
 model Track{
   id  Int @id @default(autoincrement())
   name String
-  
   playlists Playlist[]
 }

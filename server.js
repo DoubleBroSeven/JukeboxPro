@@ -24,5 +24,7 @@ app.use((err, req, res, next) => {
   res.json(err.message ?? `Something has probably caught on fire. One Sec...`);
 });
 app.listen(PORT, () => {
-  console.log(`The port hears the call of port ${PORT} and we have answered!`);
+  console.log(
+    `The App hears the call of port ${PORT} and The App will answer!`
+  );
 });
