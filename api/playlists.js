@@ -33,3 +33,21 @@ router.post("/", authenticate, async (req, res, next) => {
     next(e);
   }
 });
+
+router.get("/:id", authenticate, async (req, res, next) => {
+  const { id } = req.params;
+  const includeTracks = req.user ? { where: { ownerId: req.user.id } } : false;
+
+  try {
+    const playlists = await prisma.playlist.findUniqueOrThrow({
+      where: { id: +id },
+      include: { tracks: includeTracks },
+    });
+    res.status(201).json(playlists);
+  } catch (e) {
+    next({
+      status: 403,
+      message: "Woah there BUddy, You dont belong around here.",
+    });
+  }
+});
